@@ -20,8 +20,8 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 //Require additional routing files for API Routes and HMTL Routes
-require('.app/routing/apiRoutes.js')(app);
-require('.app/routing/htmlRoutes.js')(app);
+require('./app/routing/apiRoutes.js')(app);
+require('./app/routing/htmlRoutes.js')(app);
 
 
 // Starts the server to begin listening

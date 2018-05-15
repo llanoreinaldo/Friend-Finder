@@ -1,6 +1,6 @@
 //Friend Finder Survey (DATA)
 //=================================================================
-var surveyData = [{
+var friends = [{
         name: "Mark Sanchez",
         photo: "http://www.espn.com/nfl/player/_/id/12482/mark-sanchez",
         scores: [
