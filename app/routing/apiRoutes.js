@@ -1,7 +1,7 @@
 var path = require('path');
 var friends = require('../data/friends.js'); //Stores friends database in friends variable.
 
-module.exports == function (app) {
+module.exports = function (app) {
 
     // Routes
     // =============================================================
@@ -66,6 +66,7 @@ module.exports == function (app) {
     });
 
 }
+
 /*
 
         var newSurvey = req.body;
