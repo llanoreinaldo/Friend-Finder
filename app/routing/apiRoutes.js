@@ -1,19 +1,80 @@
-// Routes
-// =============================================================
+var path = require('path');
+var friends = require('../data/friends.js'); //Stores friends database in friends variable.
 
-// Displays a single character, or returns false
-app.get("/api/friends", function (req, res) {
-    return res.json(surveyData);
-});
+module.exports == function (app) {
 
-app.post("/api/friends", function (req, res) {
-    var newSurvey = req.body;
+    // Routes
+    // =============================================================
 
-    newSurvey.name = newSurvey.name.replace(/\s+/g, "").toLowerCase();
+    // Displays all friends, or returns false
+    app.get("/api/friends", function (req, res) {
+        return res.json(friends);
+    });
 
-    console.log(newSurvey);
+    app.post("/api/friends", function (req, res) {
 
-    surveyData.push(newSurvey);
+        console.log(req.body.name);
+        console.log(req.body.scores.length);
 
-    res.json(newSurvey);
-});
+        var matchLogic = {};
+
+        var matchScoreToBeat = 100;
+
+        for (var i = 0; i < friends.length; i++) {
+
+            var mathArray = [];
+            var totalDifference = 0;
+
+
+            for (var x = 0; x < friends[i].scores.length; x++) {
+
+                mathArray.push(Math.abs(req.body.scores[x] - friends[x].scores[x]));
+
+            };
+
+            console.log(mathArray)
+
+            for (var y = 0; y < mathArray.length; y++) {
+                totalDifference += mathArray[y];
+            }
+
+            console.log(totalDifference)
+
+
+            if (matchLogic == {}) {
+                matchLogic = friends[i];
+                matchScoreToBeat = totalDifference;
+            } else if (totalDifference < mathScoreToBeat) {
+                match = friends[i];
+                mathScoreToBeat = totalDifference;
+            }
+
+            console.log(mathScoreToBeat)
+
+        }
+
+        console.log('Your match is: ' + matchLogic.name)
+
+        // Push the new person into the friends array.
+        friends.push(req.body)
+
+        // Return the friends array as JSON.
+        // res.json(friends)
+        res.json(matchLogic)
+
+
+    });
+
+}
+/*
+
+        var newSurvey = req.body;
+
+        newSurvey.name = newSurvey.name.replace(/\s+/g, "").toLowerCase();
+
+        console.log(newSurvey);
+
+        surveyData.push(newSurvey);
+
+        res.json(newSurvey);
+*/
