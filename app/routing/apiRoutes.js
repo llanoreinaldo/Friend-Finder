@@ -66,16 +66,3 @@ module.exports = function (app) {
     });
 
 }
-
-/*
-
-        var newSurvey = req.body;
-
-        newSurvey.name = newSurvey.name.replace(/\s+/g, "").toLowerCase();
-
-        console.log(newSurvey);
-
-        surveyData.push(newSurvey);
-
-        res.json(newSurvey);
-*/
