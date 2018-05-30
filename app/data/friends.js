@@ -2,7 +2,7 @@
 //=================================================================
 var friends = [{
         name: "Mark Sanchez",
-        photo: "http://www.espn.com/nfl/player/_/id/12482/mark-sanchez",
+        photo: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fb.fssta.com%2Fuploads%2Fapplication%2Fnfl%2Fplayers%2F297127.vresize.350.425.medium.22.png&imgrefurl=https%3A%2F%2Fwww.foxsports.com%2Fnfl%2Fmark-sanchez-player-stats&docid=qFDDHJNZTda0wM&tbnid=wLCsl4bFGK3zTM%3A&vet=10ahUKEwjN6paDtK7bAhUBJKwKHcAAAccQMwg5KAQwBA..i&w=350&h=425&bih=637&biw=1366&q=mark%20sanchez&ved=0ahUKEwjN6paDtK7bAhUBJKwKHcAAAccQMwg5KAQwBA&iact=mrc&uact=8",
         scores: [
             "5",
             "1",

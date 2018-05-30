@@ -13,8 +13,8 @@ module.exports = function (app) {
 
     app.post("/api/friends", function (req, res) {
 
-        console.log(req.body.name);
-        console.log(req.body.scores.length);
+        // console.log(req.body.name);
+        // console.log(req.body.scores);
 
         var matchLogic = {};
 
@@ -28,39 +28,38 @@ module.exports = function (app) {
 
             for (var x = 0; x < friends[i].scores.length; x++) {
 
-                mathArray.push(Math.abs(req.body.scores[x] - friends[x].scores[x]));
-
+                mathArray.push(Math.abs(req.body.scores[x] - friends[i].scores[x]));
+                // console.log(mathArray)
             };
-
-            console.log(mathArray)
 
             for (var y = 0; y < mathArray.length; y++) {
                 totalDifference += mathArray[y];
             }
 
-            console.log(totalDifference)
+            // console.log(totalDifference)
 
 
             if (matchLogic == {}) {
                 matchLogic = friends[i];
                 matchScoreToBeat = totalDifference;
-            } else if (totalDifference < mathScoreToBeat) {
+            } else if (totalDifference < matchScoreToBeat) {
                 match = friends[i];
-                mathScoreToBeat = totalDifference;
+                matchScoreToBeat = totalDifference;
             }
-
-            console.log(mathScoreToBeat)
+            // console.log(match)
+            // console.log(matchScoreToBeat)
 
         }
 
-        console.log('Your match is: ' + matchLogic.name)
+        console.log('Your match is: ' + match.name);
+
 
         // Push the new person into the friends array.
-        friends.push(req.body)
-
+        friends.push(req.body);
+        // console.log(friends)
         // Return the friends array as JSON.
         // res.json(friends)
-        res.json(matchLogic)
+        res.json(match);
 
 
     });
